@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marker Hiro — UTS AR</title>
+  <meta name="description" content="Marker Hiro siap cetak untuk demo marker-based augmented reality.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="dot"></span> UTS · Augmented Reality</a>
+    <div class="links">
+      <a href="index.html">Beranda</a>
+      <a href="ar.html">Demo AR</a>
+      <a href="marker.html" class="active">Marker</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">Fiducial Marker · Preset Hiro</span>
+      <h1>Marker Hiro</h1>
+      <p class="lead">
+        Tampilkan atau cetak marker di bawah ini, lalu arahkan kamera smartphone
+        yang membuka halaman <a href="ar.html">Demo AR</a>. Marker harus terbaca
+        utuh (tidak terlipat, pencahayaan cukup).
+      </p>
+      <div class="cta-row">
+        <button class="btn" onclick="window.print()">🖨 Cetak Marker</button>
+        <a class="btn ghost" href="ar.html">Buka Demo AR</a>
+      </div>
+    </section>
+
+    <div class="marker-stage">
+      <figure class="marker-plate">
+        <img src="assets/img/hiro.png" alt="Marker Hiro — pola fiducial kotak hitam putih">
+        <figcaption class="caption">Marker Hiro (AR.js preset)</figcaption>
+      </figure>
+    </div>
+
+    <h2>Cara Pakai</h2>
+    <ol class="steps">
+      <li>
+        <strong>Tampilkan / cetak marker</strong>
+        <span>Biarkan cukup besar di layar (idealnya selebar telapak tangan).</span>
+      </li>
+      <li>
+        <strong>Buka halaman Demo AR</strong>
+        <span>Di <code class="inline">ar.html</code>, izinkan akses kamera saat diminta browser.</span>
+      </li>
+      <li>
+        <strong>Arahkan kamera ke marker</strong>
+        <span>Status berubah menjadi “Marker terdeteksi” dan robot 3D muncul di atas marker.</span>
+      </li>
+    </ol>
+
+    <h2>Troubleshooting</h2>
+    <ul class="plain">
+      <li>Pastikan halaman dibuka via HTTPS (github.io) — kamera ditolak di konteks HTTP.</li>
+      <li>Jika marker tidak terdeteksi: tambah cahaya, jaga marker rata, mundurkan sedikit kamera.</li>
+      <li>Marker tercetak idealnya hitam pekat di atas kertas putih; hindari pantulan lampu.</li>
+    </ul>
+  </main>
+
+  <footer class="site">
+    Marker Hiro — preset bawaan AR.js (jsartoolkit5), digunakan untuk demo marker-based AR.
+  </footer>
+</body>
+</html>

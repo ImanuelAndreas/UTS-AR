@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UTS Augmented Reality — Marker-Based AR</title>
+  <meta name="description" content="Implementasi augmented reality berbasis marker (marker-based) dengan AR.js dan A-Frame, di-deploy di GitHub Pages.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="index.html"><span class="dot"></span> UTS · Augmented Reality</a>
+    <div class="links">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="ar.html">Demo AR</a>
+      <a href="marker.html">Marker</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">PP50 &amp; PP49 · Marker-Based AR</span>
+      <h1>Augmented Reality Berbasis Marker di Web</h1>
+      <p class="lead">
+        Implementasi augmented reality dengan mekanisme <strong>marker-based</strong>:
+        kamera smartphone mendeteksi marker fidusia (pola kotak hitam–putih),
+        lalu model 3D animasi dirender tepat di atas marker — berjalan sepenuhnya
+        di browser, tanpa instalasi aplikasi, dan di-deploy pada situs
+        <code class="inline">github.io</code>.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="ar.html">▶ Buka Demo AR</a>
+        <a class="btn ghost" href="marker.html">Cetak / Tampilkan Marker</a>
+      </div>
+    </section>
+
+    <h2>Apa itu Marker-Based AR?</h2>
+    <p class="lead">
+      Marker-based AR adalah teknik augmented reality yang membutuhkan penanda fisik
+      (marker) berbentuk pola yang sudah diketahui komputer. Komputer membandingkan
+      citra dari kamera dengan pola marker; ketika cocok, posisi dan orientasi marker
+      dihitung (<em>pose estimation</em>) sehingga konten 3D dapat ditempatkan secara
+      konsisten pada penanda tersebut.
+    </p>
+
+    <ol class="steps">
+      <li>
+        <strong>Akuisisi citra</strong>
+        <span>Browser membuka kamera smartphone melalui API <code class="inline">getUserMedia</code> (wajib HTTPS).</span>
+      </li>
+      <li>
+        <strong>Deteksi marker</strong>
+        <span>Setiap frame dianalisis dengan jsartoolkit5 untuk menemukan pola fidusia (marker Hiro).</span>
+      </li>
+      <li>
+        <strong>Estimasi pose</strong>
+        <span>Koordinat sudut marker dipakai menghitung rotasi &amp; translasi kamera terhadap marker.</span>
+      </li>
+      <li>
+        <strong>Rendering 3D</strong>
+        <span>Model glTF dianimasikan dengan <code class="inline">THREE.AnimationMixer</code> dan digambar seolah menempel pada marker.</span>
+      </li>
+    </ol>
+
+    <h2>Coba Sekarang</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="k">01 · siapkan marker</span>
+        <h3>Tampilkan Marker Hiro</h3>
+        <p>Buka halaman marker di layar ini (atau cetak), letakkan di meja / tangan.</p>
+        <p><a href="marker.html">Buka halaman marker →</a></p>
+      </div>
+      <div class="card">
+        <span class="k">02 · buka di HP</span>
+        <h3>Jalankan Demo AR</h3>
+        <p>Buka <code class="inline">ar.html</code> di smartphone, izinkan akses kamera, lalu arahkan ke marker.</p>
+        <p><a href="ar.html">Buka demo AR →</a></p>
+      </div>
+    </div>
+
+    <h2>Spesifikasi Teknis</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="k">library</span>
+        <h3>AR.js 3.4.8</h3>
+        <p>Marker tracking berbasis jsartoolkit5, di-pin via CDN jsDelivr.</p>
+      </div>
+      <div class="card">
+        <span class="k">framework 3D</span>
+        <h3>A-Frame 1.6.0</h3>
+        <p>Framework scene grafis berbasis HTML (wrapper three.js) untuk deklaratif 3D.</p>
+      </div>
+      <div class="card">
+        <span class="k">konten</span>
+        <h3>Model glTF animasi</h3>
+        <p><code class="inline">RobotExpressive.glb</code> dengan 9 klip animasi yang bisa dipilih.</p>
+      </div>
+      <div class="card">
+        <span class="k">marker</span>
+        <h3>Preset Hiro</h3>
+        <p>Marker fidusia standar AR.js + smoothing agar tracking lebih stabil.</p>
+      </div>
+      <div class="card">
+        <span class="k">animasi</span>
+        <h3>THREE.AnimationMixer</h3>
+        <p>Mixer ditulis manual (bawaan A-Frame tidak punya komponen animation-mixer).</p>
+      </div>
+      <div class="card">
+        <span class="k">hosting</span>
+        <h3>GitHub Pages</h3>
+        <p>Di-deploy pada situs <code class="inline">github.io</code> — gratis &amp; HTTPS otomatis.</p>
+      </div>
+    </div>
+
+    <h2>Catatan Penting</h2>
+    <ul class="plain">
+      <li>Kamera hanya bisa diakses lewat konteks aman: <strong>HTTPS</strong> (github.io) atau <code class="inline">localhost</code>.</li>
+      <li>Gunakan browser modern (Chrome/Edge/Safari) yang mendukung WebGL + WebRTC.</li>
+      <li>Jika memakai komputer, buka <code class="inline">ar.html</code> lalu tampilkan marker ini di layar kedua / HP.</li>
+      <li>Tracking marker bekerja paling baik dengan pencahayaan cukup dan marker tidak terlipat.</li>
+    </ul>
+  </main>
+
+  <footer class="site">
+    UTS Augmented Reality (PP50 &amp; PP49) — Marker-Based AR dengan AR.js + A-Frame, di-host di GitHub Pages.
+  </footer>
+</body>
+</html>
