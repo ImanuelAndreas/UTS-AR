@@ -12,6 +12,7 @@ var ROBOT_LABELS = {
   Standing: "Tegak",
   Death: "Tumbang",
   WalkJump: "Lompat Jalan",
+  blink: "Kedip",
 };
 
 var ONE_SHOT = ["Jump", "Death"];
@@ -205,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!sceneReady || !modelReady) return;
     showIntro(
       "Marker-Based AR Siap",
-      "Arahkan kamera ke marker Hiro untuk menampilkan robot 3D."
+      "Arahkan kamera ke marker Hiro untuk menampilkan model 3D."
     );
     setStatus("searching", "Mencari marker…");
   }

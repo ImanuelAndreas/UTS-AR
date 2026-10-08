@@ -10,7 +10,7 @@ di situs **GitHub Pages (github.io)**.
 | AR.js | 3.4.8 (build `aframe-ar.js`, marker tracking + jsartoolkit5) — CDN jsDelivr |
 | A-Frame | 1.6.0 |
 | Marker | Preset **Hiro** (fiducial) + smoothing |
-| Konten 3D | `RobotExpressive.glb` (three.js examples, MIT) — 9 klip animasi |
+| Konten 3D | `luffy.glb` — Monkey D Luffy (skinned mesh, 1 klip animasi `blink`) |
 | Animasi | `THREE.AnimationMixer` manual (A-Frame 1.6.0 tidak punya komponen `animation-mixer`) |
 | Hosting | GitHub Pages (`https://imanuelandreas.github.io/UTS-AR/`) |
 
@@ -18,13 +18,14 @@ di situs **GitHub Pages (github.io)**.
 
 ```
 index.html    # Penjelasan teori marker-based AR + navigasi
-ar.html       # Experience AR (kamera + marker Hiro + robot glTF)
+ar.html       # Experience AR (kamera + marker Hiro + model glTF luffy.glb)
 marker.html   # Marker Hiro siap cetak
 css/style.css # Tema & styling (termasuk print CSS untuk marker)
 js/ar.js      # Komponen robot-controller + HUD (status marker, kontrol animasi)
 assets/
   img/hiro.png
-  models/RobotExpressive.glb
+  models/luffy.glb
+  models/RobotExpressive.glb   # cadangan (tidak dipakai)
 ```
 
 ## Menjalankan Lokal
@@ -46,10 +47,11 @@ npx http-server . -p 8080 -c-1
 
 1. Buka `marker.html` (cetak atau tampilkan di layar kedua).
 2. Buka `ar.html` di smartphone → izinkan kamera.
-3. Arahkan kamera ke marker → robot muncul & bisa diganti animasinya (Berdiri, Menari, Berjalan, Loncat, dll).
+3. Arahkan kamera ke marker → model Monkey D Luffy muncul & tombol animasi (*blink*) muncul di HUD bawah.
 
 ## Referensi
 
 - [AR.js](https://ar-js-org.github.io/AR.js/)
 - [A-Frame](https://aframe.io/)
-- [three.js RobotExpressive](https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive)
+- Model `luffy.glb` — Monkey D Luffy oleh AKIN di Sketchfab (isi: sumber model, lengkapi lisensi/atribusi)
+- [three.js RobotExpressive](https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive) (cadangan)
