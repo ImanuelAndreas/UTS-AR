@@ -16,7 +16,7 @@ var ROBOT_LABELS = {
 };
 
 var ONE_SHOT = ["Jump", "Death"];
-var TARGET_HEIGHT = 10.0;
+var TARGET_HEIGHT = 1.0;
 
 if (window.AFRAME) {
   AFRAME.registerComponent("robot-controller", {
@@ -35,7 +35,7 @@ if (window.AFRAME) {
     },
 
     onModelLoaded: function () {
-      var model = this.el.getObject3D("model");
+      var model = this.el.getObject3D("mesh");
       if (!model) return;
 
       this.fitToMarker(model);
