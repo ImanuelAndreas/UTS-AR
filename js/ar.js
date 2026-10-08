@@ -16,7 +16,7 @@ var ROBOT_LABELS = {
 };
 
 var ONE_SHOT = ["Jump", "Death"];
-var TARGET_HEIGHT = 10.0;
+var TARGET_HEIGHT = 5.0;
 
 if (window.AFRAME) {
   AFRAME.registerComponent("robot-controller", {
